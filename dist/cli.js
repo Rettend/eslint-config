@@ -19,7 +19,7 @@ import c from "picocolors";
 // package.json
 var version = "2.6.4";
 var devDependencies = {
-  "@antfu/eslint-config": "workspace:*",
+  "@antfu/eslint-config": "^2.6.3",
   "@antfu/eslint-plugin-prettier": "^5.0.1-1",
   "@antfu/ni": "^0.21.12",
   "@stylistic/eslint-plugin-migrate": "^1.5.4",
@@ -36,7 +36,7 @@ var devDependencies = {
   "eslint-plugin-react": "^7.33.2",
   "eslint-plugin-react-hooks": "^4.6.0",
   "eslint-plugin-react-refresh": "^0.4.5",
-  "eslint-plugin-solid": "^0.13.1",
+  "eslint-plugin-solid": "github:Rettend/eslint-plugin-solid",
   "eslint-plugin-svelte": "^2.35.1",
   "eslint-ts-patch": "^8.56.0-0",
   esno: "^4.0.0",
