@@ -566,7 +566,7 @@ Meanwhile, we do have dprint integrations for formatting other files such as `.m
 
 You can opt-in to the [`formatters`](#formatters) feature to format your CSS. Note that it's only doing formatting, but not linting. If you want proper linting support, give [`stylelint`](https://stylelint.io/) a try.
 
-### I prefer XXX...
+### I prefer XXX
 
 Sure, you can configure and override rules locally in your project to fit your needs. If that still does not work for you, you can always fork this repo and maintain your own.
 
