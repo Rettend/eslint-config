@@ -16209,11 +16209,6 @@ async function solid(options = {}) {
       name: "antfu:solid:setup",
       plugins: {
         solid: pluginSolid
-      },
-      settings: {
-        solid: {
-          version: "detect"
-        }
       }
     },
     {

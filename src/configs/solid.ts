@@ -27,11 +27,6 @@ export async function solid(
       plugins: {
         solid: pluginSolid,
       },
-      settings: {
-        solid: {
-          version: 'detect',
-        },
-      },
     },
     {
       files,
