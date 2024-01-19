@@ -1,19 +1,10 @@
-import {
-  init_esm_shims
-} from "./chunk-BHAFELBA.js";
-
-// src/cli.ts
-init_esm_shims();
-
 // src/cli/index.ts
-init_esm_shims();
 import process2 from "process";
 import c3 from "picocolors";
 import { hideBin } from "yargs/helpers";
 import yargs from "yargs";
 
 // src/cli/run.ts
-init_esm_shims();
 import fs from "fs";
 import fsp from "fs/promises";
 import path from "path";
@@ -23,7 +14,6 @@ import c2 from "picocolors";
 import parse from "parse-gitignore";
 
 // src/cli/constants.ts
-init_esm_shims();
 import c from "picocolors";
 
 // package.json
@@ -115,7 +105,6 @@ var vscodeSettingsString = `
 `;
 
 // src/cli/utils.ts
-init_esm_shims();
 import { execSync } from "child_process";
 function isGitClean() {
   try {

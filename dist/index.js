@@ -1,24 +1,9 @@
-import {
-  init_esm_shims
-} from "./chunk-BHAFELBA.js";
-
-// src/index.ts
-init_esm_shims();
-
 // src/factory.ts
-init_esm_shims();
 import process3 from "process";
 import fs from "fs";
 import { isPackageExists as isPackageExists3 } from "local-pkg";
 
-// src/configs/index.ts
-init_esm_shims();
-
-// src/configs/comments.ts
-init_esm_shims();
-
 // src/plugins.ts
-init_esm_shims();
 import { default as default2 } from "eslint-plugin-antfu";
 import { default as default3 } from "eslint-plugin-eslint-comments";
 import * as pluginImport from "eslint-plugin-i";
@@ -45,11 +30,7 @@ async function comments() {
   ];
 }
 
-// src/configs/ignores.ts
-init_esm_shims();
-
 // src/globs.ts
-init_esm_shims();
 var GLOB_SRC_EXT = "?([cm])[jt]s?(x)";
 var GLOB_SRC = "**/*.?([cm])[jt]s?(x)";
 var GLOB_JS = "**/*.?([cm])js";
@@ -131,7 +112,6 @@ async function ignores() {
 }
 
 // src/configs/imports.ts
-init_esm_shims();
 async function imports(options = {}) {
   const {
     stylistic: stylistic2 = true
@@ -171,7 +151,6 @@ async function imports(options = {}) {
 }
 
 // src/configs/javascript.ts
-init_esm_shims();
 import globals from "globals";
 async function javascript(options = {}) {
   const {
@@ -387,11 +366,7 @@ async function javascript(options = {}) {
   ];
 }
 
-// src/configs/jsdoc.ts
-init_esm_shims();
-
 // src/utils.ts
-init_esm_shims();
 import process from "process";
 import { isPackageExists } from "local-pkg";
 var parserPlain = {
@@ -489,7 +464,6 @@ async function jsdoc(options = {}) {
 }
 
 // src/configs/jsonc.ts
-init_esm_shims();
 async function jsonc(options = {}) {
   const {
     files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
@@ -565,7 +539,6 @@ async function jsonc(options = {}) {
 }
 
 // src/configs/markdown.ts
-init_esm_shims();
 import { mergeProcessors, processorPassThrough } from "eslint-merge-processors";
 async function markdown(options = {}) {
   const {
@@ -663,7 +636,6 @@ async function markdown(options = {}) {
 }
 
 // src/configs/node.ts
-init_esm_shims();
 async function node() {
   return [
     {
@@ -686,7 +658,6 @@ async function node() {
 }
 
 // src/configs/perfectionist.ts
-init_esm_shims();
 async function perfectionist() {
   return [
     {
@@ -698,11 +669,7 @@ async function perfectionist() {
   ];
 }
 
-// src/configs/formatters.ts
-init_esm_shims();
-
 // src/configs/stylistic.ts
-init_esm_shims();
 var StylisticConfigDefaults = {
   indent: 2,
   jsx: true,
@@ -913,7 +880,6 @@ async function formatters(options = {}, stylistic2 = {}) {
 }
 
 // src/configs/react.ts
-init_esm_shims();
 import { isPackageExists as isPackageExists2 } from "local-pkg";
 var ReactRefreshAllowConstantExportPackages = [
   "vite"
@@ -1009,20 +975,22 @@ async function react(options = {}) {
 }
 
 // src/configs/solid.ts
-init_esm_shims();
 async function solid(options = {}) {
   const {
     files = [GLOB_JSX, GLOB_TSX],
-    overrides = {}
+    overrides = {},
+    typescript: typescript2 = true
   } = options;
   await ensurePackages([
     "eslint-plugin-solid"
   ]);
   const [
-    pluginSolid
+    pluginSolid,
+    solid2
   ] = await Promise.all([
     // @ts-expect-error types are in src folder (and not in dist)
-    interopDefault(import("./dist-IYWSWEBI.js"))
+    interopDefault(import("eslint-plugin-solid")),
+    interopDefault(import("eslint-plugin-solid/configs/typescript"))
   ]);
   return [
     {
@@ -1033,11 +1001,14 @@ async function solid(options = {}) {
     },
     {
       files,
+      ...solid2,
       languageOptions: {
+        parser: typescript2 ? await interopDefault(import("@typescript-eslint/parser")) : null,
         parserOptions: {
           ecmaFeatures: {
             jsx: true
-          }
+          },
+          project: typescript2 ? "tsconfig.json" : void 0
         }
       },
       name: "antfu:solid:rules",
@@ -1071,7 +1042,6 @@ async function solid(options = {}) {
 }
 
 // src/configs/sort.ts
-init_esm_shims();
 async function sortPackageJson() {
   return [
     {
@@ -1284,7 +1254,6 @@ function sortTsconfig() {
 }
 
 // src/configs/svelte.ts
-init_esm_shims();
 async function svelte(options = {}) {
   const {
     files = [GLOB_SVELTE],
@@ -1378,7 +1347,6 @@ async function svelte(options = {}) {
 }
 
 // src/configs/test.ts
-init_esm_shims();
 async function test(options = {}) {
   const {
     files = GLOB_TESTS,
@@ -1425,7 +1393,6 @@ async function test(options = {}) {
 }
 
 // src/configs/typescript.ts
-init_esm_shims();
 import process2 from "process";
 async function typescript(options = {}) {
   const {
@@ -1580,7 +1547,6 @@ async function typescript(options = {}) {
 }
 
 // src/configs/unicorn.ts
-init_esm_shims();
 async function unicorn() {
   return [
     {
@@ -1621,7 +1587,6 @@ async function unicorn() {
 }
 
 // src/configs/unocss.ts
-init_esm_shims();
 async function unocss(options = {}) {
   const {
     attributify = true,
@@ -1655,7 +1620,6 @@ async function unocss(options = {}) {
 }
 
 // src/configs/vue.ts
-init_esm_shims();
 import { mergeProcessors as mergeProcessors2 } from "eslint-merge-processors";
 async function vue(options = {}) {
   const {
@@ -1803,7 +1767,6 @@ async function vue(options = {}) {
 }
 
 // src/configs/yaml.ts
-init_esm_shims();
 async function yaml(options = {}) {
   const {
     files = [GLOB_YAML],
@@ -1863,7 +1826,6 @@ async function yaml(options = {}) {
 }
 
 // src/configs/toml.ts
-init_esm_shims();
 async function toml(options = {}) {
   const {
     files = [GLOB_TOML],
@@ -2096,9 +2058,6 @@ function getOverrides(options, key) {
     ..."overrides" in sub ? sub.overrides : {}
   };
 }
-
-// src/types.ts
-init_esm_shims();
 
 // src/index.ts
 var src_default = antfu;
