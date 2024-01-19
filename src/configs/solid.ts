@@ -17,11 +17,9 @@ export async function solid(
 
   const [
     pluginSolid,
-    solid,
   ] = await Promise.all([
     // @ts-expect-error types are in src folder (and not in dist)
     interopDefault(import('eslint-plugin-solid')),
-    interopDefault(import('eslint-plugin-solid/configs/typescript')),
   ] as const)
 
   return [
@@ -33,7 +31,6 @@ export async function solid(
     },
     {
       files,
-      ...solid,
       languageOptions: {
         parser: typescript
           ? await interopDefault(import('@typescript-eslint/parser')) as any
