@@ -294,6 +294,17 @@ export interface OptionsConfig extends OptionsComponentExts {
   stylistic?: boolean | (StylisticConfig & OptionsOverrides)
 
   /**
+   * Enable astro rules.
+   *
+   * Requires installing:
+   * - `eslint-plugin-astro`
+   * - `astro-eslint-parser`
+   *
+   * @default false
+   */
+  astro?: boolean | OptionsOverrides
+
+  /**
    * Enable react rules.
    *
    * Requires installing:
@@ -358,6 +369,7 @@ export interface OptionsConfig extends OptionsComponentExts {
     markdown?: FlatConfigItem['rules']
     yaml?: FlatConfigItem['rules']
     toml?: FlatConfigItem['rules']
+    astro?: FlatConfigItem['rules']
     react?: FlatConfigItem['rules']
     svelte?: FlatConfigItem['rules']
   }
