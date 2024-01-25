@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import { isPackageExists } from 'local-pkg'
 import type { Awaitable, FlatConfigItem, OptionsConfig, UserConfigItem } from './types'
 import {
+  astro,
   comments,
   ignores,
   imports,
@@ -55,6 +56,7 @@ export async function antfu(
   ...userConfigs: Awaitable<UserConfigItem | UserConfigItem[]>[]
 ): Promise<UserConfigItem[]> {
   const {
+    astro: enableAstro = false,
     componentExts = [],
     gitignore: enableGitignore = true,
     isInEditor = !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
@@ -136,6 +138,14 @@ export async function antfu(
     configs.push(vue({
       ...resolveSubOptions(options, 'vue'),
       overrides: getOverrides(options, 'vue'),
+      stylistic: stylisticOptions,
+      typescript: !!enableTypeScript,
+    }))
+  }
+
+  if (enableAstro) {
+    configs.push(astro({
+      overrides: getOverrides(options, 'astro'),
       stylistic: stylisticOptions,
       typescript: !!enableTypeScript,
     }))
