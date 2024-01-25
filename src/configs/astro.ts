@@ -13,6 +13,7 @@ export async function astro(
 
   await ensurePackages([
     'eslint-plugin-astro',
+    'astro-eslint-parser',
   ])
 
   const [
