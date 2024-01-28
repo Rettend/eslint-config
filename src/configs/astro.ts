@@ -56,6 +56,8 @@ export async function astro(
         'astro/no-unused-define-vars-in-style': 'error',
         'astro/valid-compile': 'error',
 
+        'style/jsx-indent': 'off', // this would conflict with astro files
+
         ...stylistic
           ? {
               'astro/prefer-class-list-directive': 'error',
