@@ -1,5 +1,5 @@
 {
-  "name": "@rettend/eslint-config",
+  "name": "@antfu/eslint-config",
   "type": "module",
   "version": "2.6.4",
   "packageManager": "pnpm@8.14.1",
@@ -112,7 +112,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.6.3",
+    "@antfu/eslint-config": "workspace:*",
     "@antfu/eslint-plugin-prettier": "^5.0.1-1",
     "@antfu/ni": "^0.21.12",
     "@stylistic/eslint-plugin-migrate": "^1.5.4",
