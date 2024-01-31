@@ -31,7 +31,7 @@
     "watch": "tsup --format esm,cjs --watch",
     "lint": "eslint .",
     "prepack": "nr build",
-    "release": "bumpp && npm publish --access public",
+    "release": "bumpp && pnpm publish",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks"
