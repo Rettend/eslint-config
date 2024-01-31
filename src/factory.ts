@@ -14,6 +14,7 @@ import {
   node,
   perfectionist,
   react,
+  solid,
   sortPackageJson,
   sortTsconfig,
   stylistic,
@@ -61,6 +62,7 @@ export async function antfu(
     gitignore: enableGitignore = true,
     isInEditor = !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
     react: enableReact = false,
+    solid: enableSolid = false,
     svelte: enableSvelte = false,
     typescript: enableTypeScript = isPackageExists('typescript'),
     unocss: enableUnoCSS = false,
@@ -154,6 +156,13 @@ export async function antfu(
   if (enableReact) {
     configs.push(react({
       overrides: getOverrides(options, 'react'),
+      typescript: !!enableTypeScript,
+    }))
+  }
+
+  if (enableSolid) {
+    configs.push(solid({
+      overrides: getOverrides(options, 'solid'),
       typescript: !!enableTypeScript,
     }))
   }
